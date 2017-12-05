@@ -52,7 +52,7 @@ class MenuController
   end
 
   def view_all_entries
-    address_book.entries.each do |entry|
+    @address_book.entries.each do |entry|
       system "clear"
       puts entry.to_s
 
@@ -75,7 +75,7 @@ class MenuController
     print "Email: "
     email = gets.chomp
 
-    address_book.add_entry(name, phone, email)
+    @address_book.add_entry(name, phone, email)
 
     system "clear"
     puts "New entry created"
@@ -90,9 +90,9 @@ class MenuController
   def select_entry_number
     puts "Please enter entry number: "
     entryNumber = gets.chomp.to_i
-    if entryNumber < address_book.entries.count
+    if entryNumber < @address_book.entries.count
       system "clear"
-      puts address_book.entries[entryNumber]
+      puts @address_book.entries[entryNumber]
       main_menu
     else
       system "clear"
