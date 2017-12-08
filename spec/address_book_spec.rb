@@ -10,6 +10,16 @@ def check_entry(entry, expected_name, expected_number, expected_email)
   expect(entry.email).to eq expected_email
 end
 
+  describe "#nuke_entries" do
+    it "should delete all entries" do
+      book.add_entry("Jimbo", "232-222-2232", "jimbo@blocmail.com")
+      book.add_entry("Jimbo", "232-222-2232", "jimbo@blocmail.com")
+      book.nuke_entries
+
+      expect(book.entries.size).to eq 0
+    end
+  end
+
   describe "attributes" do
     it "responds to entries" do
       expect(book).to respond_to(:entries)

@@ -8,6 +8,9 @@ class AddressBook
     @entries = []
   end
 
+def nuke_entries
+  @entries.clear
+end
 
 def remove_entry(name, phone_number, email)
   index = 0
